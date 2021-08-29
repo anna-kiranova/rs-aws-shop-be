@@ -4,14 +4,11 @@ import { formatJSONResponse } from '@libs/apiGateway';
 import { middyfy } from '@libs/lambda';
 import * as products from 'src/products';
 
-// sls invoke local --function getProductById -d '{"pathParameters":{"id":123}}'
+// sls invoke local --function getProductById -d '{"pathParameters":{"id":"1"}}'
 
 const getProductById = async (event) => {
   let res;
-  const id = +event.pathParameters.id;
-  if (!isFinite(id)) {
-    return formatJSONResponse(400, 'Expecting number as product id');
-  }
+  const id = event.pathParameters.id;
   try {
     res = await products.getById(id);
   } catch (e) {

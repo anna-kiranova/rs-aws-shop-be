@@ -5,7 +5,7 @@ export const list = (): Promise<Product[]> => {
     return Promise.resolve(data);
 }
 
-export const getById = async (id: number): Promise<Product | null> => {
+export const getById = async (id: string): Promise<Product | null> => {
     const products = await list();
     const product = products.find((p) => p.id === id);
     return product || null;

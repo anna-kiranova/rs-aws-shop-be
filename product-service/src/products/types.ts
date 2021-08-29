@@ -1,5 +1,6 @@
 export default interface Product {
-    id: number;
-    name: string;
+    id: string;
+    title: string;
+    description: string;
     price: number;
 }

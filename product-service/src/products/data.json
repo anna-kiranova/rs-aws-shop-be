@@ -1,27 +1,32 @@
 [
     {
-        "id": 1,
-        "name": "Chocolate muffin",
+        "id": "1",
+        "title": "Chocolate muffin",
+        "description": "Yummy chocolate muffin",
         "price": 5
     },
     {
-        "id": 2,
-        "name": "Vanilla muffin",
+        "id": "2",
+        "title": "Vanilla muffin",
+        "description": "Yummy vanilla muffin",
         "price": 3
     },
     {
-        "id": 3,
-        "name": "Strawberry muffin",
+        "id": "3",
+        "title": "Strawberry muffin",
+        "description": "Yummy strawberry muffin",
         "price": 4
     },
     {
-        "id": 4,
-        "name": "Blueberry muffin",
+        "id": "4",
+        "title": "Blueberry muffin",
+        "description": "Yummy blueberry muffin",
         "price": 4
     },
     {
-        "id": 5,
-        "name": "Banana muffin",
+        "id": "5",
+        "title": "Banana muffin",
+        "description": "Yummy banana muffin",
         "price": 3
     }
 ]
