@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "Chocolate muffin",
+        "price": 5
+    },
+    {
+        "id": 2,
+        "name": "Vanilla muffin",
+        "price": 3
+    },
+    {
+        "id": 3,
+        "name": "Strawberry muffin",
+        "price": 4
+    },
+    {
+        "id": 4,
+        "name": "Blueberry muffin",
+        "price": 4
+    },
+    {
+        "id": 5,
+        "name": "Banana muffin",
+        "price": 3
+    }
+]
