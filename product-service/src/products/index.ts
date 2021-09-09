@@ -45,10 +45,11 @@ export const getById = async (id: string): Promise<Product | null> => {
     return null;
 }
 
-export const create = async (productData: ProductData): Promise<Product | null> => {
+export const create = async (productData: ProductData): Promise<Product> => {
     console.log('create', productData);
     const client = await getClient();
     let res;
+    await client.query('begin');
     try {
         res = await client.query(
             'insert into products(title, description, price) values ($1, $2, $3) returning *', [productData.title, productData.description, productData.price]
@@ -63,11 +64,13 @@ export const create = async (productData: ProductData): Promise<Product | null> 
         if (res.rows.length <= 0) {
             throw new Error('Failed to created stocks row');
         }
+        await client.query('commit');
         const createdStocksRow: StocksRow = res.rows[0];
         return { ...createdProductRow, count: createdStocksRow.count };
+    } catch (e) {
+        await client.query('rollback');
+        throw e;
     } finally {
         client.end()
     }
-
-    return null;
 }
