@@ -8,7 +8,6 @@ import * as products from 'src/products';
 
 const createProduct = async (event) => {
   const productData = event.body;
-  console.log('event', typeof event, event);
   let createdProduct;
   try {
     createdProduct = await products.create(productData);
