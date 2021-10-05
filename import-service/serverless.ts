@@ -25,6 +25,7 @@ const serverlessConfiguration: AWS = {
     },
     environment: {
       AWS_NODEJS_CONNECTION_REUSE_ENABLED: '1',
+      SQS_URL: '${cf:product-service-${self:provider.stage}.catalogItemsQueueUrl}',
     },
     lambdaHashingVersion: '20201221',
     iamRoleStatements: [
@@ -43,6 +44,11 @@ const serverlessConfiguration: AWS = {
         'Resource': [
           `arn:aws:s3:::${BUCKET}/*`,
         ],
+      },
+      {
+        'Effect': 'Allow',
+        'Action': 'sqs:*',
+        'Resource': '${cf:product-service-${self:provider.stage}.createProductTopicArn}',
       },
     ],
   },
