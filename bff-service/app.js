@@ -19,7 +19,8 @@ app.all('/*', async (req, res, next) => {
     const targetApiBaseUrl = apiUrls[targetApiName];
 
     if (targetApiBaseUrl) {
-        const targetApiUrl = `${targetApiBaseUrl}${originalUrl}`
+        const targetUrl = originalUrl.slice(targetApiName.length + 1);
+        const targetApiUrl = `${targetApiBaseUrl}${targetUrl}`
         try {
             const headers = {...req.headers};
             delete headers.host;
